@@ -1,0 +1,321 @@
+/*
+ * Estilos exclusivos del panel de administración.
+ * Se carga después de estilos.css y reutiliza sus variables.
+ *
+ * Índice
+ *  1. Estructura general
+ *  2. Barra lateral
+ *  3. Encabezado e indicadores
+ *  4. Tablas
+ *  5. Estados de pedidos y productos
+ *  6. Notificaciones
+ *  7. Ventana para publicar productos
+ *  8. Adaptación a tabletas y celulares
+ */
+
+
+/* ===== 1. Estructura general ===== */
+
+.cuerpo-administracion {
+  display: grid;
+  grid-template-columns: 16rem minmax(0, 1fr);
+  min-height: 100vh;
+  background: #F6F1EE;
+}
+
+.contenido-panel {
+  display: grid;
+  align-content: start;
+  gap: var(--espacio-mediano);
+  padding: 2.25rem 3rem;
+}
+
+.tarjeta-panel {
+  border: 1px solid var(--color-borde);
+  border-radius: var(--redondeo-mediano);
+  background: var(--color-superficie);
+  overflow-x: auto;
+}
+
+.tarjeta-panel h2 {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--color-borde);
+  font-family: var(--fuente-texto);
+  font-size: 1.15rem;
+  letter-spacing: 0;
+}
+
+
+/* ===== 2. Barra lateral ===== */
+
+.barra-lateral {
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  height: 100vh;
+  padding: 2rem 1.25rem;
+  background: var(--color-tinta);
+  color: var(--color-fondo);
+}
+
+.logotipo-panel {
+  display: grid;
+  gap: 0.25rem;
+  padding: 0 0.75rem;
+  font-family: var(--fuente-titulos);
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.logotipo-panel span {
+  font-family: var(--fuente-texto);
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: #CDBBB7;
+}
+
+.barra-lateral nav ul {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.barra-lateral nav a {
+  display: block;
+  padding: 0.7rem 0.75rem;
+  border-radius: var(--redondeo-pequeno);
+  color: #E4D6D2;
+  text-decoration: none;
+}
+
+.barra-lateral nav a:hover {
+  background: #3A2A2E;
+  color: var(--color-superficie);
+}
+
+.barra-lateral nav a[aria-current='page'] {
+  background: var(--color-principal);
+  color: var(--color-superficie);
+}
+
+.enlace-ver-tienda {
+  margin-top: auto;
+  padding: 0 0.75rem;
+  color: var(--color-rosa-claro);
+}
+
+.enlace-ver-tienda:hover {
+  color: var(--color-superficie);
+}
+
+
+/* ===== 3. Encabezado e indicadores ===== */
+
+.encabezado-panel {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.encabezado-panel h1 {
+  font-size: 2.25rem;
+}
+
+.aviso-datos-de-ejemplo {
+  padding: 0.75rem 1rem;
+  border-radius: var(--redondeo-pequeno);
+  background: #FCE9C8;
+  color: #6B4200;
+  font-size: 0.9rem;
+}
+
+.indicadores {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.indicador {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 0.5rem;
+  padding: 1.5rem;
+  border: 1px solid var(--color-borde);
+  border-radius: var(--redondeo-mediano);
+  background: var(--color-superficie);
+}
+
+.indicador dt {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-texto-suave);
+}
+
+.indicador dd {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+
+/* ===== 4. Tablas ===== */
+
+.tabla-panel {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.tabla-panel th {
+  padding: 0.75rem 1.5rem;
+  background: var(--color-fondo);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-align: left;
+  color: var(--color-texto-suave);
+}
+
+.tabla-panel td {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid #F0E4E0;
+  white-space: nowrap;
+}
+
+.tabla-panel td:first-child {
+  font-weight: 600;
+}
+
+
+/* ===== 5. Estados de pedidos y productos ===== */
+
+.estado {
+  display: inline-block;
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--redondeo-completo);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.estado-nuevo {
+  background: var(--color-principal);
+  color: var(--color-superficie);
+}
+
+.estado-pagado {
+  background: var(--color-rubor);
+  color: var(--color-principal-oscuro);
+}
+
+.estado-preparando,
+.estado-pocas-piezas {
+  background: #FCE9C8;
+  color: #6B4200;
+}
+
+.estado-enviado {
+  background: #DCE8F7;
+  color: #1C3F6E;
+}
+
+.estado-entregado,
+.estado-disponible {
+  background: #E4EFE6;
+  color: var(--color-exito);
+}
+
+.estado-agotado {
+  background: var(--color-tinta);
+  color: var(--color-fondo);
+}
+
+
+/* ===== 6. Notificaciones ===== */
+
+.lista-notificaciones li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.15rem 0.875rem;
+  padding: 1rem 1.5rem;
+}
+
+.lista-notificaciones li + li {
+  border-top: 1px solid #F0E4E0;
+}
+
+.lista-notificaciones li::before {
+  content: '';
+  grid-row: span 2;
+  width: 0.625rem;
+  height: 0.625rem;
+  margin-top: 0.45rem;
+  border-radius: 50%;
+  background: var(--color-principal);
+}
+
+.lista-notificaciones .notificacion-leida::before {
+  background: var(--color-borde-campo);
+}
+
+.lista-notificaciones time {
+  font-size: 0.85rem;
+  color: var(--color-texto-suave);
+}
+
+
+/* ===== 7. Ventana para publicar productos ===== */
+
+.ventana-panel {
+  width: min(100% - 2rem, 40rem);
+  padding: 0;
+  border: 0;
+  border-radius: var(--redondeo-grande);
+  background: var(--color-fondo);
+}
+
+.ventana-panel::backdrop {
+  background: rgba(34, 22, 26, 0.55);
+}
+
+.ventana-panel form {
+  padding: 1.5rem;
+}
+
+.acciones-ventana {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+
+/* ===== 8. Adaptación a tabletas y celulares ===== */
+
+@media (max-width: 64rem) {
+  .cuerpo-administracion {
+    grid-template-columns: 1fr;
+  }
+
+  .barra-lateral {
+    position: static;
+    height: auto;
+    gap: 1rem;
+  }
+
+  .barra-lateral nav ul {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .enlace-ver-tienda {
+    margin-top: 0;
+  }
+
+  .contenido-panel {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .indicadores {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

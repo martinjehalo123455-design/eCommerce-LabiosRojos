@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Panel de administración | Labios Rojos</title>
+  <meta name="robots" content="noindex">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=DM+Sans:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="estilos/estilos.css">
+  <link rel="stylesheet" href="estilos/administracion.css">
+
+  <script src="scripts/catalogo.js" defer></script>
+  <script src="scripts/tienda.js" defer></script>
+  <script src="scripts/administracion.js" defer></script>
+</head>
+<body class="cuerpo-administracion">
+
+  <aside class="barra-lateral">
+    <p class="logotipo-panel">
+      Labios Rojos
+      <span>Panel de administración</span>
+    </p>
+    <nav aria-label="Secciones del panel">
+      <ul>
+        <li><a href="#resumen" aria-current="page">Resumen</a></li>
+        <li><a href="#pedidos">Pedidos</a></li>
+        <li><a href="#productos">Productos e inventario</a></li>
+        <li><a href="#notificaciones">Notificaciones</a></li>
+      </ul>
+    </nav>
+    <a class="enlace-ver-tienda" href="index.html">Ver tienda</a>
+  </aside>
+
+  <main class="contenido-panel">
+
+    <header class="encabezado-panel">
+      <hgroup>
+        <h1>Resumen</h1>
+        <p class="texto-suave">Hola, [NOMBRE]. Esto es lo que pasó en tu tienda.</p>
+      </hgroup>
+      <button id="boton-publicar-producto" class="boton boton-principal" type="button">Publicar producto</button>
+    </header>
+
+    <p class="aviso-datos-de-ejemplo">
+      Vista de ejemplo: los pedidos y clientas se conectarán con la base de datos en la Fase 2.
+    </p>
+
+    <section id="resumen" aria-label="Indicadores del mes">
+      <dl id="indicadores" class="indicadores">
+        <!-- Los indicadores se crean desde scripts/administracion.js -->
+      </dl>
+    </section>
+
+    <section id="pedidos" class="tarjeta-panel" aria-labelledby="titulo-pedidos">
+      <h2 id="titulo-pedidos">Pedidos recientes</h2>
+      <table class="tabla-panel">
+        <thead>
+          <tr>
+            <th scope="col">Pedido</th>
+            <th scope="col">Clienta</th>
+            <th scope="col">Productos</th>
+            <th scope="col">Total</th>
+            <th scope="col">Estado</th>
+          </tr>
+        </thead>
+        <tbody id="tabla-pedidos">
+          <!-- Las filas se crean desde scripts/administracion.js -->
+        </tbody>
+      </table>
+    </section>
+
+    <section id="productos" class="tarjeta-panel" aria-labelledby="titulo-productos">
+      <h2 id="titulo-productos">Productos e inventario</h2>
+      <table class="tabla-panel">
+        <thead>
+          <tr>
+            <th scope="col">Producto</th>
+            <th scope="col">Categoría</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Existencias</th>
+            <th scope="col">Estado</th>
+          </tr>
+        </thead>
+        <tbody id="tabla-productos">
+          <!-- Las filas se crean desde scripts/administracion.js -->
+        </tbody>
+      </table>
+    </section>
+
+    <section id="notificaciones" class="tarjeta-panel" aria-labelledby="titulo-notificaciones">
+      <h2 id="titulo-notificaciones">Notificaciones</h2>
+      <ul id="lista-notificaciones" class="lista-notificaciones">
+        <!-- Las notificaciones se crean desde scripts/administracion.js -->
+      </ul>
+    </section>
+
+  </main>
+
+  <dialog id="ventana-publicar-producto" class="ventana-panel" aria-labelledby="titulo-ventana">
+    <form id="formulario-producto" class="formulario-pago" method="dialog">
+      <fieldset>
+        <legend id="titulo-ventana">Publicar producto nuevo</legend>
+        <label class="campo campo-completo">
+          Nombre del producto
+          <input name="nombre" type="text" required>
+        </label>
+        <label class="campo">
+          Categoría
+          <select id="campo-categoria" name="categoria" required></select>
+        </label>
+        <label class="campo">
+          Tono
+          <input name="tono" type="text" placeholder="Por ejemplo: Rojo clásico" required>
+        </label>
+        <label class="campo">
+          Precio en pesos
+          <input name="precio" type="number" min="1" step="0.01" required>
+        </label>
+        <label class="campo">
+          Piezas en existencia
+          <input name="existencias" type="number" min="0" step="1" required>
+        </label>
+        <label class="campo campo-completo">
+          Descripción
+          <input name="descripcion" type="text">
+        </label>
+      </fieldset>
+      <p class="acciones-ventana">
+        <button id="boton-cancelar" class="boton boton-secundario" type="button">Cancelar</button>
+        <button class="boton boton-principal" type="submit">Publicar</button>
+      </p>
+    </form>
+  </dialog>
+
+  <p id="aviso" class="aviso" role="status" aria-live="polite"></p>
+
+</body>
+</html>

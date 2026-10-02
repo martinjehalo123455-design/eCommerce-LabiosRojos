@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Finaliza tu compra | Labios Rojos</title>
+  <meta name="description" content="Completa tu compra como invitada con pago seguro.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=DM+Sans:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="estilos/estilos.css">
+
+  <script src="scripts/catalogo.js" defer></script>
+  <script src="scripts/tienda.js" defer></script>
+  <script src="scripts/pago.js" defer></script>
+</head>
+<body>
+
+  <header class="encabezado-sitio encabezado-pago">
+    <a class="logotipo" href="index.html">Labios Rojos</a>
+    <p class="indicador-pago-seguro">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="5" y="11" width="14" height="10" rx="2"/>
+        <path d="M8 11V8a4 4 0 0 1 8 0v3"/>
+      </svg>
+      Pago seguro
+    </p>
+  </header>
+
+  <main class="pagina-pago">
+
+    <form id="formulario-pago" class="formulario-pago" novalidate>
+      <header>
+        <h1 class="titulo-pagina">Finaliza tu compra</h1>
+        <p class="texto-suave">Estás comprando como invitada. Solo necesitamos tus datos para la entrega y la confirmación.</p>
+      </header>
+
+      <fieldset>
+        <legend>1. Contacto</legend>
+        <label class="campo campo-completo">
+          Nombre completo
+          <input name="nombre" type="text" autocomplete="name" required>
+        </label>
+        <label class="campo">
+          Correo electrónico
+          <input name="correo" type="email" autocomplete="email" required>
+        </label>
+        <label class="campo">
+          Teléfono o WhatsApp
+          <input name="telefono" type="tel" autocomplete="tel" inputmode="tel" required>
+        </label>
+        <label class="casilla">
+          <input name="recibir-actualizaciones" type="checkbox" checked>
+          Quiero recibir actualizaciones de mi pedido por correo
+        </label>
+      </fieldset>
+
+      <fieldset>
+        <legend>2. Entrega</legend>
+        <label class="opcion">
+          <input name="entrega" type="radio" value="recoger-en-tienda" checked>
+          Recoger en tienda
+          <span class="detalle-opcion">Gratis, en Tequila</span>
+        </label>
+        <label class="opcion">
+          <input name="entrega" type="radio" value="envio-a-domicilio">
+          Envío a domicilio
+          <span id="precio-envio-opcion" class="detalle-opcion"></span>
+        </label>
+      </fieldset>
+
+      <fieldset id="datos-de-envio" hidden disabled>
+        <legend>3. Dirección de envío</legend>
+        <label class="campo campo-completo">
+          Calle y número
+          <input name="calle" type="text" autocomplete="street-address" required>
+        </label>
+        <label class="campo">
+          Colonia
+          <input name="colonia" type="text" required>
+        </label>
+        <label class="campo">
+          Código postal
+          <input name="codigo-postal" type="text" autocomplete="postal-code" inputmode="numeric" pattern="[0-9]{5}" required>
+        </label>
+        <label class="campo">
+          Ciudad
+          <input name="ciudad" type="text" autocomplete="address-level2" value="Tequila" required>
+        </label>
+        <label class="campo">
+          Estado
+          <select name="estado" autocomplete="address-level1" required>
+            <option>Jalisco</option>
+            <option>Aguascalientes</option>
+            <option>Colima</option>
+            <option>Guanajuato</option>
+            <option>Michoacán</option>
+            <option>Nayarit</option>
+            <option>Zacatecas</option>
+          </select>
+        </label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Método de pago</legend>
+        <label class="opcion">
+          <input name="metodo-de-pago" type="radio" value="Mercado Pago" checked>
+          Mercado Pago
+          <span class="detalle-opcion">Tarjeta, OXXO o saldo</span>
+        </label>
+        <label class="opcion">
+          <input name="metodo-de-pago" type="radio" value="Stripe">
+          Stripe
+          <span class="detalle-opcion">Tarjeta de crédito o débito</span>
+        </label>
+        <p class="nota-campo">
+          Te llevaremos a la página de pago para completar tu compra.
+          Labios Rojos no guarda los datos de tu tarjeta.
+        </p>
+      </fieldset>
+    </form>
+
+    <aside class="resumen-pedido" aria-labelledby="titulo-resumen-pago">
+      <h2 id="titulo-resumen-pago">Tu pedido</h2>
+      <ul id="lista-resumen" class="lista-resumen">
+        <!-- Los artículos se crean desde scripts/pago.js -->
+      </ul>
+      <dl class="desglose">
+        <dt>Subtotal</dt>
+        <dd id="subtotal-pago">$0.00</dd>
+        <dt>Envío</dt>
+        <dd id="envio-pago">Gratis</dd>
+        <dt class="total">Total</dt>
+        <dd id="total-pago" class="total">$0.00</dd>
+      </dl>
+      <button id="boton-pagar" class="boton boton-principal boton-ancho" type="submit" form="formulario-pago">Pagar con Mercado Pago</button>
+      <a class="nota-resumen" href="carrito.html">Volver al carrito</a>
+    </aside>
+
+  </main>
+
+  <footer class="pie-sitio">
+    <section>
+      <a class="logotipo" href="index.html">Labios Rojos</a>
+      <p class="texto-suave">Cosméticos y belleza desde Tequila, Jalisco.</p>
+    </section>
+    <nav aria-labelledby="titulo-pie-tienda">
+      <h2 id="titulo-pie-tienda">Tienda</h2>
+      <ul>
+        <li><a href="index.html#catalogo">Catálogo</a></li>
+        <li><a href="carrito.html">Carrito</a></li>
+        <li><a href="confirmacion.html">Seguimiento de pedido</a></li>
+      </ul>
+    </nav>
+    <nav aria-labelledby="titulo-pie-ayuda">
+      <h2 id="titulo-pie-ayuda">Ayuda</h2>
+      <ul>
+        <li><a href="#">Envíos y entregas</a></li>
+        <li><a href="#">Cambios y devoluciones</a></li>
+        <li><a href="#">Aviso de privacidad</a></li>
+      </ul>
+    </nav>
+    <section>
+      <h2>Contacto</h2>
+      <ul class="texto-suave">
+        <li>WhatsApp [NÚMERO]</li>
+        <li>[CORREO DE CONTACTO]</li>
+      </ul>
+    </section>
+    <p class="derechos">© 2026 Labios Rojos, Tequila, Jalisco.</p>
+  </footer>
+
+  <p id="aviso" class="aviso" role="status" aria-live="polite"></p>
+
+</body>
+</html>

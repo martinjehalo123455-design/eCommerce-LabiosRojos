@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tu carrito | Labios Rojos</title>
+  <meta name="description" content="Revisa los productos de tu carrito antes de pagar.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=DM+Sans:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="estilos/estilos.css">
+
+  <script src="scripts/catalogo.js" defer></script>
+  <script src="scripts/tienda.js" defer></script>
+  <script src="scripts/carrito.js" defer></script>
+</head>
+<body>
+
+  <p class="barra-anuncio">Compra sin crear cuenta y paga de forma segura con Mercado Pago o Stripe.</p>
+
+  <header class="encabezado-sitio">
+    <button class="boton-menu" type="button" aria-expanded="false" aria-controls="navegacion-principal" aria-label="Abrir menú">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+        <path d="M4 7h16M4 12h16M4 17h16"/>
+      </svg>
+    </button>
+
+    <a class="logotipo" href="index.html">Labios Rojos</a>
+
+    <nav id="navegacion-principal" class="navegacion-principal" aria-label="Categorías">
+      <ul>
+        <li><a href="index.html?categoria=Labios#catalogo">Labios</a></li>
+        <li><a href="index.html?categoria=Ojos#catalogo">Ojos</a></li>
+        <li><a href="index.html?categoria=Rostro#catalogo">Rostro</a></li>
+        <li><a href="index.html?categoria=Uñas#catalogo">Uñas</a></li>
+        <li><a href="index.html#salon">Salón</a></li>
+      </ul>
+    </nav>
+
+    <a class="enlace-carrito" href="carrito.html" aria-label="Ver carrito" data-enlace-carrito>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M6 7h12l1 13H5L6 7z"/>
+        <path d="M9 7a3 3 0 0 1 6 0"/>
+      </svg>
+      <span class="contador-carrito" data-contador-carrito hidden>0</span>
+    </a>
+  </header>
+
+  <main class="pagina-carrito">
+
+    <header>
+      <h1 class="titulo-pagina">Tu carrito</h1>
+      <a href="index.html#catalogo">Seguir comprando</a>
+    </header>
+
+    <section id="carrito-vacio" class="mensaje-vacio" hidden>
+      <h2 class="titulo-seccion">Tu carrito está vacío</h2>
+      <p class="texto-suave">Agrega productos desde el catálogo para comenzar tu pedido.</p>
+      <a class="boton boton-principal" href="index.html#catalogo">Ver catálogo</a>
+    </section>
+
+    <section id="contenido-carrito" class="contenido-carrito" aria-label="Productos en tu carrito">
+
+      <ul id="lista-carrito" class="lista-carrito">
+        <!-- Los artículos se crean desde scripts/carrito.js -->
+      </ul>
+
+      <aside class="resumen-pedido" aria-labelledby="titulo-resumen">
+        <h2 id="titulo-resumen">Resumen del pedido</h2>
+        <dl class="desglose">
+          <dt>Subtotal (<span id="cantidad-articulos">0</span> artículos)</dt>
+          <dd id="subtotal-carrito">$0.00</dd>
+          <dt>Envío</dt>
+          <dd>Se calcula en el pago</dd>
+          <dt class="total">Total</dt>
+          <dd id="total-carrito" class="total">$0.00</dd>
+        </dl>
+        <a class="boton boton-principal boton-ancho" href="pago.html">Continuar al pago</a>
+        <p class="nota-resumen">No necesitas crear una cuenta para comprar.</p>
+      </aside>
+
+    </section>
+
+  </main>
+
+  <footer class="pie-sitio">
+    <section>
+      <a class="logotipo" href="index.html">Labios Rojos</a>
+      <p class="texto-suave">Cosméticos y belleza desde Tequila, Jalisco.</p>
+    </section>
+    <nav aria-labelledby="titulo-pie-tienda">
+      <h2 id="titulo-pie-tienda">Tienda</h2>
+      <ul>
+        <li><a href="index.html#catalogo">Catálogo</a></li>
+        <li><a href="carrito.html">Carrito</a></li>
+        <li><a href="confirmacion.html">Seguimiento de pedido</a></li>
+      </ul>
+    </nav>
+    <nav aria-labelledby="titulo-pie-ayuda">
+      <h2 id="titulo-pie-ayuda">Ayuda</h2>
+      <ul>
+        <li><a href="#">Envíos y entregas</a></li>
+        <li><a href="#">Cambios y devoluciones</a></li>
+        <li><a href="#">Aviso de privacidad</a></li>
+      </ul>
+    </nav>
+    <section>
+      <h2>Contacto</h2>
+      <ul class="texto-suave">
+        <li>WhatsApp [NÚMERO]</li>
+        <li>[CORREO DE CONTACTO]</li>
+      </ul>
+    </section>
+    <p class="derechos">© 2026 Labios Rojos, Tequila, Jalisco.</p>
+  </footer>
+
+  <p id="aviso" class="aviso" role="status" aria-live="polite"></p>
+
+</body>
+</html>
