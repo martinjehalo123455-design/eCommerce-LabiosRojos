@@ -23,7 +23,7 @@ try {
 }*/
 
 
-$config = require __DIR__ . '/../../config/config.php';
+$config = require __DIR__ . '/../../config/config.php';//Ruta donde tengo la configuracion de msql
 
 try {
     $pdo = new PDO(
