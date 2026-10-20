@@ -3,12 +3,11 @@
 
 header('Content-Type: application/json; charset=utf-8');
 
-require_once __DIR__ . '/conexion.php';
+require __DIR__ . '/conexion.php';
 
 // Se asume que conexion.php crea la variable $pdo.
 
 try {
-
     $sql = "SELECT
                 p.id,
                 p.sku,
@@ -26,7 +25,8 @@ try {
             ORDER BY p.destacado DESC, p.id DESC
             LIMIT 20";
 
-    $stmt = $pdo->prepare($sql);
+    // $stmt = $pdo->prepare($sql);
+    $stmt = conectar()->prepare($sql);
     $stmt->execute();
 
     $productos = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -37,6 +37,7 @@ try {
     ], JSON_UNESCAPED_UNICODE);
 
 } catch (Throwable $e) {
+    echo $e;
 
     http_response_code(500);
 

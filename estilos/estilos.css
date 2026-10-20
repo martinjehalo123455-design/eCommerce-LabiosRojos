@@ -130,7 +130,7 @@ img {
 }
 
 
-/* ===== 3. Botones y enlaces ===== */
+/* ===== 3. Botones, iconos y enlaces ===== */
 
 a {
     color: var(--color-principal);
@@ -236,6 +236,11 @@ a:hover {
     text-align: center;
 }
 
+.icon_footer {
+    max-width: 1.5rem;
+    height: auto;
+}
+
 
 /* ===== 4. Barra de anuncio y encabezado ===== */
 
@@ -260,7 +265,7 @@ a:hover {
     border-bottom: 1px solid var(--color-borde);
 }
 
-.logotipo {
+/* .logotipo {
     margin-right: auto;
     font-family: var(--fuente-titulos);
     font-size: 1.75rem;
@@ -268,6 +273,12 @@ a:hover {
     letter-spacing: -0.02em;
     color: var(--color-principal);
     text-decoration: none;
+} */
+
+#logotipo_img {
+    margin-right: auto;
+    width: 3rem;
+    height: auto;
 }
 
 .navegacion-principal ul {
@@ -1341,6 +1352,7 @@ a:hover {
 
 .pie-sitio ul {
     display: grid;
+    grid-template-columns: auto auto;
     gap: 0.6rem;
 }
 

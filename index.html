@@ -29,9 +29,9 @@
         <path d="M4 7h16M4 12h16M4 17h16"/>
       </svg>
     </button>
-
-        <a class="logotipo" href="index.html">Labios Rojos</a>
-
+        <a class="logotipo" id="logotipo_img" href="index.html"><img src="imagenes/logo_lr.jpg" alt="logotipo imagen de Labios Rojos"></a>
+        <!-- <a class="logotipo" href="index.html">Labios Rojos</a> -->
+        
         <nav id="navegacion-principal" class="navegacion-principal" aria-label="Categorías">
             <ul>
                 <li><a href="index.html?categoria=Labios#catalogo">Labios</a></li>
@@ -155,11 +155,13 @@
                     <li>Corte de cabello</li>
                 </ul>
                 <address class="datos-salon">
-          [DIRECCIÓN DEL NEGOCIO], Tequila, Jalisco<br>
-          [HORARIO DE ATENCIÓN]
-        </address>
+                    <img src="" alt="icono de ubicación">
+                    Nicolás Bravo #247, Tequila, Jalisco, Mexico.
+                    <br>
+                    <!-- [HORARIO DE ATENCIÓN] -->
+                </address>
                 <p>
-                    <a class="boton boton-claro" href="https://wa.me/[NUMERO_DE_WHATSAPP]" target="_blank" rel="noopener">Agenda por WhatsApp</a>
+                    <a class="boton boton-claro" href="https://api.whatsapp.com/send/?phone=523320836559&text=Hola me gustaria agendar una cita.&phone_number=&app_absent=0" target="_blank" rel="noopener">Agenda por WhatsApp</a>
                 </p>
             </header>
 
@@ -191,12 +193,20 @@
                 <li><a href="#">Aviso de privacidad</a></li>
             </ul>
         </nav>
-        <section>
-            <h2>Contacto</h2>
-            <ul class="texto-suave">
-                <li>WhatsApp [NÚMERO]</li>
-                <li>[CORREO DE CONTACTO]</li>
-            </ul>
+        <section id="contacto_section">
+            <h2 id="contacto_header">Contacto</h2>
+            <div id="contacto_whatsapp">
+                <img class="icon_footer" src="iconos/whatsapp_icon.png" alt="icono de WhatsApp color negro">
+                <a href="https://api.whatsapp.com/send/?phone=523320836559&text=Hola%20buen%20d%C3%ADa,%20quisiera%20pedir%20informaci%C3%B3n%20sobre%20sus%20productos%20y%20servicios%27&type=phone_number&app_absent=0">+52 3320836559</a>
+            </div>
+            <div id="contacto_phone">
+                <img class="icon_footer" src="iconos/whatsapp_icon.png" alt="icono de email color negro">
+                <a href="">+52 3320836559</a>
+            </div>
+            <div id="contacto_email">
+                <img class="icon_footer" src="iconos/whatsapp_icon.png" alt="icono de email color negro">
+                <a href="">+52 3320836559</a>
+            </div>
         </section>
         <p class="derechos">© 2026 Labios Rojos, Tequila, Jalisco.</p>
     </footer>
