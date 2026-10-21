@@ -12,10 +12,15 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=DM+Sans:wght@400;500;600;700&display=swap">
     <link rel="stylesheet" href="estilos/estilos.css">
 
+    <!---Agregar icon de logo y nuevas librerias-->
+    <link rel="shortcut icon" href="imagenes/logo_lr.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
     <script src="scripts/catalogo.js" defer></script>
     <script src="scripts/tienda.js" defer></script>
     <script src="scripts/inicio.js" defer></script>
     <script src="js/categoria-producto.js" defer></script>
+
 
 </head>
 
@@ -25,13 +30,14 @@
 
     <header class="encabezado-sitio">
         <button class="boton-menu" type="button" aria-expanded="false" aria-controls="navegacion-principal" aria-label="Abrir menú">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
-        <path d="M4 7h16M4 12h16M4 17h16"/>
-      </svg>
-    </button>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+                <path d="M4 7h16M4 12h16M4 17h16"/>
+            </svg>
+            </button>
+
         <a class="logotipo" id="logotipo_img" href="index.html"><img src="imagenes/logo_lr.jpg" alt="logotipo imagen de Labios Rojos"></a>
         <!-- <a class="logotipo" href="index.html">Labios Rojos</a> -->
-        
+
         <nav id="navegacion-principal" class="navegacion-principal" aria-label="Categorías">
             <ul>
                 <li><a href="index.html?categoria=Labios#catalogo">Labios</a></li>
@@ -42,13 +48,23 @@
             </ul>
         </nav>
 
-        <a class="enlace-carrito" href="carrito.html" aria-label="Ver carrito" data-enlace-carrito>
+        <!--Se puede eliminar
+            <a class="enlace-carrito" href="carrito.html" aria-label="Ver carrito" data-enlace-carrito>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M6 7h12l1 13H5L6 7z"/>
-        <path d="M9 7a3 3 0 0 1 6 0"/>
-      </svg>
+            <path d="M6 7h12l1 13H5L6 7z"/>
+            <path d="M9 7a3 3 0 0 1 6 0"/>
+            </svg>
+            <span class="contador-carrito" data-contador-carrito hidden>0</span>
+            </a>-->
+
+        <!--Nuevo estilo para agregar contador de carrito-->
+        <a class="enlace-carrito" href="carrito.html" aria-label="Ver carrito" data-enlace-carrito>
+
+            <i class="bi bi-bag-heart"></i>
+
             <span class="contador-carrito" data-contador-carrito hidden>0</span>
         </a>
+
     </header>
 
     <main>
@@ -155,10 +171,8 @@
                     <li>Corte de cabello</li>
                 </ul>
                 <address class="datos-salon">
-                    <img src="" alt="icono de ubicación">
-                    Nicolás Bravo #247, Tequila, Jalisco, Mexico.
-                    <br>
-                    <!-- [HORARIO DE ATENCIÓN] -->
+                   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3727.851029765471!2d-103.8397268!3d20.878053899999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842615084dbbc25d%3A0xf512508d7fcc1bd6!2sLabios%20Rojos!5e0!3m2!1ses-419!2smx!4v1792603966076!5m2!1ses-419!2smx" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                 
                 </address>
                 <p>
                     <a class="boton boton-claro" href="https://api.whatsapp.com/send/?phone=523320836559&text=Hola me gustaria agendar una cita.&phone_number=&app_absent=0" target="_blank" rel="noopener">Agenda por WhatsApp</a>
@@ -166,7 +180,7 @@
             </header>
 
             <figure class="imagen-salon">
-                <figcaption>Foto del salón</figcaption>
+                <img src="imagenes/LabiosRojosInterior.png" alt="Labios Rojos Tequila">
             </figure>
         </section>
 

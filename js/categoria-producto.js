@@ -1,3 +1,5 @@
+/**Mostrar productos de categorias */
+
 document.addEventListener('DOMContentLoaded', cargarProductos);
 
 const formatoPrecio = new Intl.NumberFormat('es-MX', {
@@ -60,50 +62,68 @@ async function cargarProductos() {
                     const imagen = producto.imagen_principal || 'https://cdn-icons-png.flaticon.com/512/4016/4016766.png';
 
                     return `
-                <article class="producto-card">
-                    <div class="producto-imagen">
-                        <img
-                            src="${escaparHTML(imagen)}"
-                            alt="${escaparHTML(producto.nombre)}"
-                            loading="lazy"
-                        >
+                    <article class="producto-card">
 
-                        ${tieneOferta
-                            ? '<span class="producto-oferta">OFERTA</span>'
-                            : ''}
+                        <!-- IMAGEN CON ENLACE AL DETALLE -->
+                        <div class="producto-imagen">
+
+                            <a href="producto.html?slug=${encodeURIComponent(producto.slug)}"
+                            class="producto-enlace-imagen"
+                            aria-label="Ver detalles de ${escaparHTML(producto.nombre)}">
+
+                                <img
+                                    src="${escaparHTML(imagen)}"
+                                    alt="${escaparHTML(producto.nombre)}"
+                                    loading="lazy"
+                                >
+
+                            </a>
+
+                       ${tieneOferta  ? '<span class="producto-oferta">OFERTA</span>' : ''}
                     </div>
 
-                    <div class="producto-info">
-                        <span class="producto-categoria">
-                            ${escaparHTML(producto.categoria || 'Belleza')}
+                <div class="producto-info">
+
+                    <span class="producto-categoria">
+                        ${escaparHTML(producto.categoria || 'Belleza')}
+                    </span>
+
+                    <!-- NOMBRE CON ENLACE -->
+                    <h3 class="producto-nombre">
+                        <a href="producto.html?slug=${encodeURIComponent(producto.slug)}"
+                        class="producto-enlace-nombre">
+                            ${escaparHTML(producto.nombre)}
+                        </a>
+                    </h3>
+
+                    <div class="producto-precios">
+
+                        <span class="precio-actual">
+                            ${formatoPrecio.format(precioFinal)}
                         </span>
 
-                        <h3 class="producto-nombre">
-                            ${escaparHTML(producto.nombre)}
-                        </h3>
-
-                        <div class="producto-precios">
-                            <span class="precio-actual">
-                                ${formatoPrecio.format(precioFinal)}
+                        ${tieneOferta ? `
+                            <span class="precio-anterior">
+                                ${formatoPrecio.format(precio)}
                             </span>
+                        ` : ''}
 
-                            ${tieneOferta ? `
-                                <span class="precio-anterior">
-                                    ${formatoPrecio.format(precio)}
-                                </span>
-                            ` : ''}
-                        </div>
-
-                        <button
-                            class="btn-agregar"
-                            data-id="${Number(producto.id)}"
-                            ${disponible ? '' : 'disabled'}
-                        >
-                            ${disponible ? 'Agregar al carrito' : 'Agotado'}
-                        </button>
                     </div>
-                </article>
-            `;
+
+                    <!-- BOTÓN AGREGAR AL CARRITO -->
+                    <button
+                        type="button"
+                        class="btn-agregar"
+                        data-id="${Number(producto.id)}"
+                        ${disponible ? '' : 'disabled'} >
+                        <i class="bi bi-bag-plus"></i>
+                        ${disponible ? 'Agregar al carrito' : 'Agotado'}
+                    </button>
+
+                </div>
+
+            </article>
+        `;
         }).join('');
 
     } catch (error) {

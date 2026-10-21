@@ -1,6 +1,6 @@
 <?php
 
-const CREDENCIALES_BD = '/Applications/XAMPP/xamppfiles/etc/db_labiosrojos.php';
+const CREDENCIALES_BD = '/Users/goglobaloffice/Downloads/config/config.php';
    
 function conectar(): PDO {
     static $pdo = null;                                         // Una sola conexión por petición
